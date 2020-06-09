@@ -95,24 +95,40 @@ So, food_assoc is still going to be an associative array.
 Every key of food_assoc (pizza, cheesecake) will now have the value that is associative array itself 
 and carries the information about the type and origin
 */
+$food_assoc = [
+  "Pizza" => [
+    "type" => "main course",
+    "origin" => "Italy"
+  ],
+  "Donuts" => [
+    "type" => "desert",
+    "origin" => "Greece"
+  ],
+   "Kale" => [
+    "type" => "salad",
+    "origin" => "Canada"
+  ],
+     "Mac and Cheese" => [
+    "type" => "main course",
+    "origin" => "America"
+  ]
+];
 
-$food_assoc = array (
-    array("Mac and Cheese", "Main Course", "America"),
-    array("Kale", "Salad", "Canada"),
-    array("Pizza", "Main Course", "Italy"),
-    array("Donuts", "Dessert", "Switzerland")
-);
     
-
 /*
 Print every food, type and origin in the separate lines so it renders like this:
 pizza | main counrse | Italy
 cheesesake | desert | Greece
 */
-echo $food_assoc[0][0] . " | " . $food_assoc[0][1] . " | " . $food_assoc[0][2] . "<br>";
-echo $food_assoc[1][0] . " | " . $food_assoc[1][1] . " | " . $food_assoc[1][2] . "<br>";
-echo $food_assoc[2][0] . " | " . $food_assoc[2][1] . " | " . $food_assoc[2][2] . "<br>";
-echo $food_assoc[3][0] . " | " . $food_assoc[3][1] . " | " . $food_assoc[3][2] . "<br>";
+foreach ($food_assoc as $k => $v)
+{   
+    echo $k ;
+    foreach($v as $key => $value)
+    {
+        echo " |  $value" ;
+    }
+    echo "<br>";   
+}
 
 
 
@@ -142,30 +158,21 @@ Print the array from task 4 in html table:
   </tr>
 </table>
 */
-echo "<table>";
-echo "<tr>";
-echo "<th>" . $food_assoc[0][0] . "</th>";
-echo "<th>" . $food_assoc[0][1] . "</th>";
-echo "<th>" . $food_assoc[0][2] . "</th>";
-echo "</tr>";
+echo "<table border=2 width=50%>";
+echo "<tr> <th> FOOD </th> <th> TYPE </th> <th> ORIGIN </th> <tr>";
 
-echo "<tr>";
-echo "<th>" . $food_assoc[1][0] . "</th>";
-echo "<th>" . $food_assoc[1][1] . "</th>";
-echo "<th>" . $food_assoc[1][2] . "</th>";
-echo "</tr>";
+foreach ($food_assoc as $k => $v)
+{ 
+    echo "<tr>";
+    echo "<th>" . $k . "</th>";
 
-echo "<tr>";
-echo "<th>" . $food_assoc[2][0] . "</th>";
-echo "<th>" . $food_assoc[2][1] . "</th>";
-echo "<th>" . $food_assoc[2][2] . "</th>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<th>" . $food_assoc[3][0] . "</th>";
-echo "<th>" . $food_assoc[3][1] . "</th>";
-echo "<th>" . $food_assoc[3][2] . "</th>";
-echo "</tr>";
+    foreach($v as $key => $value)
+    {
+        echo "<th>" . $value . "</th>";
+        
+    }
+    echo "</tr>";
+}
 echo "</table>";
 
 
