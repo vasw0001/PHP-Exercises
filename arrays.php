@@ -158,7 +158,7 @@ Print the array from task 4 in html table:
   </tr>
 </table>
 */
-echo "<table border=2 width=50%>";
+echo "<table border=1 width=30%>";
 echo "<tr> <th> FOOD </th> <th> TYPE </th> <th> ORIGIN </th> <tr>";
 
 foreach ($food_assoc as $k => $v)
